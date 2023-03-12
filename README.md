@@ -1,2 +1,2 @@
-# project-3-frontend
-GA Project 3 Frontend
+# roomiefinderz
+GA Project 3 Frontend with Thiago, Vi, and Sameer
