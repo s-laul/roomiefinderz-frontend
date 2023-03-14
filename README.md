@@ -5,7 +5,7 @@ GA Project 3 Frontend with Thiago, Vi, and Sameer
 
 This goal of this project is to allow users to use CRUD functionality and the MERN stack to improve the process of finding roommates and housing.
 
-<img src='/Users/sameer.laul/Downloads/Untitled.jpg'>
+<img src='./frontend/images/Concept1.jpg'>
 
 <h2>User Story</h2>
 
@@ -14,7 +14,7 @@ This app will create a platform for students on college campuses to:
    • Find rooms/sublets for rent
    • Post rooms/sublets for rent
 
-<img src='/Users/sameer.laul/Downloads/Untitled2.jpg'>
+<img src='./frontend/images/Concept2.jpg'>
 
 Students can be matched with other students or rooms/sublets based on characteristics or preferences, such as:
    • Age
