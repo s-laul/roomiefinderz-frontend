@@ -19,8 +19,8 @@ This app will create a platform for students on college campuses to: <br/>
 Students can be matched with other students or rooms/sublets based on characteristics or preferences, such as:<br/>
    • Age<br/>
    • Gender<br/>
-   • Personality (introvert/extrovert, early/late riser, etc.)<br/><br/>
-
+   • Personality (introvert/extrovert, early/late riser, etc.)<br/>
+   
    • Housing style<br/>
    • Number of rooms<br/>
    • Number of bathrooms<br/>
