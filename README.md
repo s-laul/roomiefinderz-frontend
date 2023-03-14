@@ -28,3 +28,4 @@ Students can be matched with other students or rooms/sublets based on characteri
 
 <h2>Wireframe</h2>
 
+<img src='./frontend/images/Wireframe.png'>
