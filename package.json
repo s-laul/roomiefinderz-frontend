@@ -1,8 +1,4 @@
-{
-<<<<<<< HEAD
-  "dependencies": {
-    "react-router-dom": "^6.9.0"
-=======
+{ 
   "name": "project-3",
   "version": "0.1.0",
   "private": true,
@@ -13,7 +9,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "react-router-dom": "^6.9.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -38,6 +35,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
->>>>>>> e446643d22009aab966953d1cb99e654d415b691
   }
 }
