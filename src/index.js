@@ -7,11 +7,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Route>
   <React.StrictMode>
     <App />
   </React.StrictMode>
-  </Route>
 );
 
 // If you want to start measuring performance in your app, pass a function
