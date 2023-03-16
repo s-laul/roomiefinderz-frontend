@@ -17,7 +17,7 @@ const HomePage = (props) => {
                </button>
             </section>
          </div>
-         <img src="../../public/Images/Homepage.png"/>
+         <img className="skyline" src="https://www.pngkit.com/png/full/636-6361779_skyline-clipart-bangalore-city-line-art-png.png"/>
       </>
    )
 }
