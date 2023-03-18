@@ -1,26 +1,33 @@
+/* Global */
 html {
   background-color: rgb(255, 252, 196);
 }
 .App {
   text-align: center;
 }
-
 h1 {
-  margin: 1em;
-  font-size: 48px;
+  margin: 0.5em;
+  text-align: center;
+  font-size: 72px;
+  font-family: 'Righteous', cursive;
+}
+.Skyline {
+  position: fixed;
+  bottom: -50px;
+  width: 100%;
+  height: auto;
 }
 
+
+/* Homepage */
 .Homepage {
   margin-top: 5em;
 }
-
 .buttons {
   margin: 5em;
   display: flex;
   justify-content: space-between;
-  
 }
-
 button {
   width: 160px;
   height: 120px;
@@ -28,6 +35,34 @@ button {
   border-radius: 12px;
   border-width: 1px;
   font-size: 18px;
-
 }
 
+
+/* Profile Form */
+.profile-form {
+  padding-top: 2rem;
+}
+.profile-form input {
+  margin-bottom: 0.25rem;
+}
+.profile-formselect {
+  margin-bottom: 0.25rem;
+}
+.profile-form #age {
+  width: 40px;
+}
+.profile-form #interests {
+  width: 180px;
+}
+
+
+/* Room Form */
+.room-form {
+  padding-top: 2rem;
+}
+.room-form input {
+  margin-bottom: 0.25rem;
+}
+.room-form select {
+  margin-bottom: 0.25rem;
+}
