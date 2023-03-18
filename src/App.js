@@ -10,7 +10,7 @@ function App() {
     <>
       <h1>RoomieFinderz</h1>
         <div className="App">
-          <CreateRoom />
+          <HomePage />
           {/* Code space */}
 
         </div>
