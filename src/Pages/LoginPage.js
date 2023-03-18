@@ -8,11 +8,20 @@ export default (props) => {
         password: ""
     })
 
-    const handleSubmit = (e) => {
+    const handleChange = (e) => {
         setlogin(prev => ({
             ...prev,
             [e.target.username]: e.target.value
         }))
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        props.createUser(login)
+        setlogin({
+            username: "",
+            password: ""
+        })
     }
 
     return (
@@ -20,12 +29,13 @@ export default (props) => {
         <h1>
             Login
         </h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleChange}>
             <input
             type= 'text'
             value= {login.username}
             name='username'
             placeholder='username'
+            onChange={handleSubmit}
             />
             <br/>
             <input
@@ -33,6 +43,7 @@ export default (props) => {
             value={login.password}
             name='password'
             placeholder='password'
+            onChange={handleSubmit}
             />
             <br/>
             <input

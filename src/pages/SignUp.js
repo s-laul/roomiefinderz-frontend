@@ -8,24 +8,35 @@ export default (props) => {
         password: ""
     })
 
-    const handleSubmit = (e) => {
+    const handleChange = (e) => {
         setNewUser(prev => ({
             ...prev,
             [e.target.username]: e.target.value
         }))
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        props.createUSer(newUser)
+        setlogin({
+            username: "",
+            password: ""
+        })
+    }
+
+
     return (
        <section>
         <h1>
             Login
         </h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleChange}>
             <input
             type= 'text'
             value= {newUser.username}
             name='username'
             placeholder='username'
+            onChange={handleSubmit}
             />
             <br/>
             <input
@@ -33,6 +44,7 @@ export default (props) => {
             value={newUser.password}
             name='password'
             placeholder='password'
+            onChange={handleSubmit}
             />
             <br/>
             <input
