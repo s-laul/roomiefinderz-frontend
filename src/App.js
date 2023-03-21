@@ -1,16 +1,15 @@
 import './App.css';
 import LoginPage from './Pages/LoginPage'
 import HomePage from './Pages/HomePage';
-import PagesTemplate from './Components/PageTemplate';
-import CreateProfile from './Components/CreateProfileForm';
-import CreateRoom from './Components/CreateRoomForm';
+import RoommatesDisplay from './Components/RoomatesDisplay';
+import CreateProfileForm from './Components/CreateProfileForm';
 
 function App() {
   return (
     <>
       <h1>RoomieFinderz</h1>
         <div className="App">
-          <HomePage />
+          <CreateProfileForm />
           {/* Code space */}
 
         </div>

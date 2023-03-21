@@ -1,11 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CreateProfileForm from "./CreateProfileForm";
 
-const RoommatesDisplay = (props) => {
+const RoommatesDisplay = ({name, age, gender, major, interests, smoker, morningOrNight, roommateOrRoom}) => {
    return (
-      <div>
-         <CreateProfileForm />
-      </div>
+      <>
+      </>
    )
 }
 
