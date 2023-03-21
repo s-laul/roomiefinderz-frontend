@@ -14,16 +14,16 @@ const CreateRoom = (props) => {
             </select><br/>
 
             <label for="room-type">Room: &nbsp;</label>
-            <select id="room-type" name="housing-type">
+            <select id="room-type" name="type-type">
                <option value="individual-room">Individual Room</option>
                <option value="shared-room">Shared Room</option>
-               <option value="studio">Individual Room</option>
+               <option value="studio">Studio</option>
             </select><br/>
 
             <label for="bathroom-type">Bathroom: &nbsp;</label>
             <select id="bathroom-type" name="bathroom-type">
-               <option value="individual-bathroom">Individual Bathroom</option>
-               <option value="shared-bathroom">Shared Bathroom</option>
+               <option value="individual-bathroom">Individual</option>
+               <option value="shared-bathroom">Shared</option>
             </select><br/>
 
             <label for="kitchen">Kitchen &nbsp;</label>
