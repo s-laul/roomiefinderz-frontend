@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEf } from "react"
 
 
 const CreateProfileForm = (props) => {
@@ -24,13 +24,8 @@ const CreateProfileForm = (props) => {
    const createProfile = (e) => {
       e.preventDefault()
       console.log(formData)
-      setFormData(formData)
    }
    
-   useEffect(() => {
-      createProfile(formData)
-   }, [])
-
    return ( 
       <container className="profile-form-container">
          <form onSubmit={createProfile} className="profile-form">
