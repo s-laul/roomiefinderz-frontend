@@ -1,37 +1,63 @@
-const CreateProfile = (props) => {
+import { useState, useEf } from "react"
+
+
+const CreateProfileForm = (props) => {
+
+   const [formData, setFormData] = useState({
+      name: '',
+      age: '',
+      gender: '',
+      major: '',
+      interests: '',
+      smoker: 'No',
+      morningOrNight: 'Morning',
+      roommateOrRoom: 'Roommate'
+   })
+
+   const onChangeData = (e) => {
+      setFormData((prev) => ({
+         ...prev, 
+         [e.target.name]: e.target.value
+      }))
+   }
+
+   const createProfile = (e) => {
+      e.preventDefault()
+      console.log(formData)
+   }
    
-   return (
+   return ( 
       <container className="profile-form-container">
-         <form className="profile-form">
-            <label for="name">Name: &nbsp;</label>
-            <input id="name" type="text" name="name" placeholder="First name only"/><br/>
+         <form onSubmit={createProfile} className="profile-form">
+            <label htmlFor="name">Name: &nbsp;</label>
+            <input onChange={onChangeData} value={formData.name} id="name" type="text" name="name" placeholder="First name only"/><br/>
          
-            <label for="age">Age: &nbsp;</label>
-            <input id="age" type="number" name="age"/><br/>
+            <label htmlFor="age">Age: &nbsp;</label>
+            <input onChange={onChangeData} value={formData.age} id="age" type="number" name="age"/><br/>
 
-            <label for="gender">Gender: &nbsp;</label>
-            <input id="gender" type="text" name="gender"/><br/>
+            <label htmlFor="gender">Gender: &nbsp;</label>
+            <input onChange={onChangeData} value={formData.gender} id="gender" type="text" name="gender"/><br/>
 
-            <label for="major">Major: &nbsp;</label>
-            <input id="major" type="text" name="major"/><br/>
+            <label htmlFor="major">Major: &nbsp;</label>
+            <input onChange={onChangeData} value={formData.major} id="major" type="text" name="major"/><br/>
 
-            <label for="interests">Interests: &nbsp;</label>
-            <input id="interests" type="text" name="interests" placeholder="Three, separated by commas"></input><br/>
+            <label htmlFor="interests">Interests: &nbsp;</label>
+            <input onChange={onChangeData} value={formData.interests} id="interests" type="text" name="interests" placeholder="Three, separated by commas"></input><br/>
 
-            <label for="morning-or-night">Morning or Night Person: &nbsp;</label>
-            <select id="morning-or-night" name="morning-or-night">
+            <label htmlFor="morningOrNight">Morning or Night Person: &nbsp;</label>
+            <select onChange={onChangeData} value={formData.morningOrNight} id="morningOrNight" name="morningOrNight">
                <option value="morning">Morning  </option>
                <option value="night">Night  </option>
             </select><br/>
 
-            <label for="smoker">Smoker: &nbsp;</label>
-            <select id="smoker" name="smoker">
+            <label htmlFor="smoker">Smoker: &nbsp;</label>
+            <select onChange={onChangeData} value={formData.smoker} id="smoker" name="smoker">
                <option value="no">No</option>
                <option value="yes">Yes</option>
             </select><br/>
 
-            <label for="roommate-or-room">Seeking Roommate or Room: &nbsp;</label>
-            <select id="roommate-or-room" name="roommate-or-room">
+            <label htmlFor="roommateOrRoom">Seeking Roommate or Room: &nbsp;</label>
+            <select onChange={onChangeData} value={formData.roommateOrRoom} id="roommateOrRoom" name="roommateOrRoom">
                <option value="roommate">Roommate</option>
                <option value="room">Room</option>
             </select><br/>
@@ -42,4 +68,4 @@ const CreateProfile = (props) => {
    )
 }
 
-export default CreateProfile
+export default CreateProfileForm
