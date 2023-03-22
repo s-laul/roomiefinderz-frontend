@@ -65,7 +65,7 @@ export default (props) => {
   }  
   return(
       <section>
-        <Link to={`/requestapts`}>
+        <Link to={`/requestapts/requestapts`}>
           <h3>Create A New Room</h3>
         </Link>
         {props.apartment ? <Loaded/>: <Loading />}

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom"
-import CreateRoomForm from "./CreateRoomForm";
+import { Routes, Route, useParams } from "react-router-dom"
 import RoomsIndexPage from "../Pages/RoomsIndexPage";
 import RoomShow from "../Pages/RoomShow";
 import RoomNew from "../Pages/RoomNew";
@@ -8,6 +7,7 @@ import RoomNew from "../Pages/RoomNew";
 const URL = "http://localhost:4000/requestapts"
 
 const RoomsDisplay = (props) => {
+
    const [apartment, setApartment] = useState(null)
 
    const getApartment = async () => {
@@ -18,6 +18,7 @@ const RoomsDisplay = (props) => {
    }
    const createApartment = async (room) => {
       await fetch(URL, {
+      // await fetch(`${URL}/apartment`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
@@ -52,6 +53,7 @@ const RoomsDisplay = (props) => {
     
    return (
       <main>
+         <h1>REQUEST A ROOM</h1>
          <Routes>
             <Route path='/' element={
                <RoomsIndexPage apartment={apartment}/>
@@ -63,12 +65,11 @@ const RoomsDisplay = (props) => {
                   deleteApartment={deleteApartment}
                />
             }/>
-            <Route path='/requestapts' element={
+            <Route path='/requestapts/requestapts' element={
                <RoomNew apartment={apartment}
                createApartment={createApartment}
                />
             }/>
-            
          </Routes>
       </main>
       // <div>
