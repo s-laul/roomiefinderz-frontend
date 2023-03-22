@@ -99,19 +99,19 @@ export default (props) => {
         onChange={handleChange}
       /><br/>
       <label>Housing Type: &nbsp;</label>
-      <select id="housingType" name="housingType" onChange={handleChange}>
-          <option value="apartment">Apartment</option>
-          <option value="condo">Condo</option>
-          <option value="house">House</option>
+      <select id="housingType" name="housingType" value={editForm.housingType} onChange={handleChange}>
+          <option value="Apartment">Apartment</option>
+          <option value="Condo">Condo</option>
+          <option value="House">House</option>
       </select><br/>
       <label>Room: &nbsp;</label>
-        <select id="roomType" name="roomType" onChange={handleChange}>
+        <select id="roomType" name="roomType" value={editForm.roomType} onChange={handleChange}>
           <option value="Individual">Individual</option>
           <option value="Shared">Shared</option>
           <option value="Studio">Studio</option>
         </select><br/>
         <label>Bathroom: &nbsp;</label>
-        <select id="bathroomType" name="bathroomType" onChange={handleChange}>
+        <select id="bathroomType" name="bathroomType" value={editForm.bathroomType} onChange={handleChange}>
             <option value="Individual">Individual</option>
             <option value="Shared">Shared</option>
         </select><br/>
