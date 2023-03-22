@@ -1,63 +1,47 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import HomePage from './HomePage'
+import { useNavigate } from 'react-router-dom'
 
 export default (props) => {
-
-    const [login, setlogin] = useState({
-        username: "",
-        password: ""
-    })
-
-    const handleChange = (e) => {
-        setlogin(prev => ({
-            ...prev,
-            [e.target.username]: e.target.value
-        }))
-    }
-
+    const Navigate = useNavigate()
+    const [username, setUserName] = useState("")
+    const [password, setPassword] = useState("")
+    const [authenticated, setauthenticated] = useState(localStorage.getItem(localStorage.getItem("authenticated") || false))
+    const users = [{username: "Thiago", password: "test"}]
     const handleSubmit = (e) => {
         e.preventDefault()
-        props.createUser(login)
-        setlogin({
-            username: "",
-            password: ""
-        })
+        const account = users.find((user) => user.username === username)
+        if(account && account.password === password) {
+            localStorage.setItem("authenticated", true)
+            Navigate('/Homepage')
+        }
     }
 
     return (
-       <section>
-        <h1>
+        <div>
+        <h2>
             Login
-        </h1>
-        <form onSubmit={handleChange}>
+        </h2>
+
+        <form onSubmit={handleSubmit}>
             <input
-            type= 'text'
-            value= {login.username}
-            name='username'
-            placeholder='username'
-            onChange={handleSubmit}
+            type="text"
+            name="username"
+            value={username}
+            onChange={(e) => setUserName(e.target.value)}
             />
             <br/>
             <input
-            type= 'text'
-            value={login.password}
-            name='password'
-            placeholder='password'
-            onChange={handleSubmit}
+            type="password"
+            name="password"
+            onChange={(e) => setPassword(e.target.value)}
             />
             <br/>
             <input
-            type='submit'
-            value='SIGN IN'
+            type="submit"
+            value="submit"
             />
         </form>
-        <br/>
-        <p>
-            Dont have an Account?
-        </p>
-        <Link to={`/registration`}>
-            Click Here
-        </Link>
-       </section>
+        </div>
     )
 }
