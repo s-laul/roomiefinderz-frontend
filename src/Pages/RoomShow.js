@@ -1,11 +1,17 @@
 import {useState} from 'react'
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams, useLocation} from "react-router-dom"
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (props) => {
   const {id} = useParams()
+  console.log(id)
+  const location = useLocation();
+  const propsData = location.state;
+  console.log(propsData);
+  console.log("HERE")
   const navigate = useNavigate()
   const apartment = props.apartment
+  console.log(apartment)
   const room = apartment.find((p) => p._id === id)
 
   const [editForm, setEditForm] = useState(room)

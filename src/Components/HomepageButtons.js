@@ -10,29 +10,21 @@ const HomePageButtons = (props) => {
             What would you like to do?
          </h2>
          <section className="buttons">
-         <Link to="/RoommatesDisplay">
-            <button>Find a Roommate</button>
-         </Link>
-         <Link to="/postapts">
-            <button>Find a Room</button>
-         </Link>
-         <Link to="/requestapts" element={<RoomsDisplay />}>
-            <button>Post a Room</button>
-         </Link>
-            {/* <button className="findRoomate">
-               Find a Roommate
-            </button>
-            <button className="findRoom">
-               Find a Room
-            </button>
-            <button className="postRoom">
-               Post a Room
-            </button> */}
+            <Link to="/RoommatesDisplay">
+               <button>Find a Roommate</button>
+            </Link>
+            <Link to="/postapts">
+               <button>Find a Room</button>
+            </Link>
+            <Link to="/requestapts">
+               <button>Post a Room</button>
+            </Link>
+
              {/* <Nav/>
             <Routes>
                <Route path='/' element={<RoommatesDisplay />} />
                <Route path='/postapts' element={<RoomsDisplay />} />
-               <Route path='/requestapts/*' element={<RoomsDisplay />} />
+               <Route path='/requestapts' element={<RoomsDisplay />} />
             </Routes> */}
          </section>
       </div>

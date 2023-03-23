@@ -44,7 +44,8 @@ export default (props) => {
   const Loaded = () => {
     return props.apartment.map((room) => (
       <div key={room._id} className='room'>
-        <Link to={`/requestapts/${room._id}`}>
+        <Link to={{pathname: `/requestapts/view/${room._id}`,
+        state: "XXX"}}>
           <h3>{room.userName}</h3>
         </Link>
         <h5>Location: {room.location}</h5>
@@ -65,7 +66,7 @@ export default (props) => {
   }  
   return(
       <section>
-        <Link to={`/requestapts/requestapts`}>
+        <Link to={`/requestapts`}>
           <h3>Create A New Room</h3>
         </Link>
         {props.apartment ? <Loaded/>: <Loading />}

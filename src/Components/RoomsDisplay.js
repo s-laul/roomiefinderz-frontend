@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { Routes, Route, useParams } from "react-router-dom"
+import { Routes, Route, Outlet } from "react-router-dom"
 import RoomsIndexPage from "../Pages/RoomsIndexPage";
 import RoomShow from "../Pages/RoomShow";
 import RoomNew from "../Pages/RoomNew";
 
+// const URL = "http://localhost:4000/"
 const URL = "http://localhost:4000/requestapts"
 
 const RoomsDisplay = (props) => {
@@ -11,6 +12,7 @@ const RoomsDisplay = (props) => {
    const [apartment, setApartment] = useState(null)
 
    const getApartment = async () => {
+      // const response = await fetch(URL+'requestapts')
       const response = await fetch(URL)
       const data = await response.json()
       console.log(data)
@@ -30,7 +32,8 @@ const RoomsDisplay = (props) => {
     }
   
     const updateApartment = async(room, id ) => {
-      await fetch(`${URL}/${id}`,  {
+      console.log("In " + URL)
+      await fetch(`${URL}/view/${id}`,  {
         method: 'put',
         headers: {
          "Content-Type": 'application/json'
@@ -53,28 +56,24 @@ const RoomsDisplay = (props) => {
     
    return (
       <main>
-         <h1>REQUEST A ROOM</h1>
          <Routes>
             <Route path='/' element={
                <RoomsIndexPage apartment={apartment}/>
             }/>
-            <Route path='/requestapts/:id' element={
+            <Route path='/requestapts/view/:id' element={
                <RoomShow
                   apartment={apartment}
                   updateApartment={updateApartment}
                   deleteApartment={deleteApartment}
                />
             }/>
-            <Route path='/requestapts/requestapts' element={
+            <Route path='/requestapts' element={
                <RoomNew apartment={apartment}
                createApartment={createApartment}
                />
             }/>
          </Routes>
       </main>
-      // <div>
-      //    <CreateRoomForm />
-      // </div>
    )
 }
 export default RoomsDisplay
