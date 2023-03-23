@@ -6,7 +6,7 @@ const SignUp = (props) => {
 
     const URL = 'https://roomie-finder.herokuapp.com/registration'
 
-    const [user, setUser] = useState(null)
+    // const [user, setUser] = useState(null)
 
     const getUser = async () => {
         const response = await fetch(URL)
