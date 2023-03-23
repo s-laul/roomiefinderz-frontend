@@ -18,11 +18,11 @@ function App() {
       <h1>RoomieFinderz</h1>
         <div className="App" >
         <Routes>
-          <Route path='/' element={<HomePage />} />
+          <Route path='/' element={<LoginPage />} />
                <Route path='/findroomate' element={<RoommatesDisplay />} />
                <Route path='/postapts' element={<RoomsDisplay />} />
                <Route path='/requestapts' element={<RoomsDisplay />} />
-               <Route path='/login' element={<LoginPage/>} />
+               <Route path='/homepage' element={<HomePage/>} />
                <Route path='/registration' element={<SignUp/>} />
         </Routes> 
           {/* <CreateProfile createProfile={CreateProfile}/> */}

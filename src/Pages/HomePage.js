@@ -12,7 +12,7 @@ const HomePage = (props) => {
    },[])
 
    if(!authenticated){
-      <Navigate replace to="/login"/>
+      <Navigate replace to="/"/>
    } else {
    return (
       <div className="HomePage">
