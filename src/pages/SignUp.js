@@ -1,64 +1,59 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import Login from './LoginPage'
+import { useNavigate } from 'react-router-dom'
 
-export default (props) => {
+const SignUp = (props) => {
+    const Navigate = useNavigate()
 
-    const [newUser, setNewUser] = useState({
-        username: "",
-        password: ""
-    })
+    const URL = 'https://roomie-finder.herokuapp.com/registration'
 
-    const handleChange = (e) => {
-        setNewUser(prev => ({
-            ...prev,
-            [e.target.username]: e.target.value
-        }))
+    // const [user, setUser] = useState(null)
+
+    const getUser = async () => {
+        const response = await fetch(URL)
+        const data = await response.json()
+        console.log(data)
+        getUser()
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        props.createUSer(newUser)
-        setlogin({
-            username: "",
-            password: ""
+    const createUser = async (user) => {
+        await fetch(URL, {
+            method: "post",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(user)
         })
+        getUser()
     }
 
 
+    const handleButton = (e) => {
+        e.preventDefault()
+        Navigate('/login')
+    }
     return (
-       <section>
-        <h1>
-            Login
-        </h1>
-        <form onSubmit={handleChange}>
+        <div>
+        <h2>
+            Sign Up Here
+        </h2>
+
+        <form>
             <input
-            type= 'text'
-            value= {newUser.username}
-            name='username'
-            placeholder='username'
-            onChange={handleSubmit}
+                type="text"
+                name="username"
             />
             <br/>
             <input
-            type= 'text'
-            value={newUser.password}
-            name='password'
-            placeholder='password'
-            onChange={handleSubmit}
-            />
-            <br/>
-            <input
-            type='submit'
-            value='SIGN UP'
+                type="password"
+                name="password"
             />
         </form>
-        <br/>
         <p>
-            Already have an account?
+            Dont have an account?
         </p>
-        <Link to={`/login`}>
-            Click Here
-        </Link>
-       </section>
+        <button className='button2' onClick={handleButton}>Click Here</button>
+        </div>
     )
 }
+
+export default SignUp

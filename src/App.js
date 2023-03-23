@@ -12,6 +12,8 @@ import HomePageButtons from './Components/HomepageButtons';
 import Nav from './Components/Nav';
 import RoomShow from './Pages/RoomShow';
 import RoomNew from './Pages/RoomNew';
+import SignUp from './Pages/SignUp';
+
 
 function App() {
   return (
@@ -20,12 +22,14 @@ function App() {
         <div className="App" >
           <Routes>
             {/* <Route path='/' element={<Nav />} />
-            <Route index element={<HomePage />}/> */}
+              <Route index element={<HomePage />}/> */}
             <Route path='/' element={<HomePage />} />
             <Route path='/findroomate' element={<RoommatesDisplay />} />
-            <Route path='/postapts' element={<RoomsDisplay />} />
-            <Route path='/requestapts' element={<RoomsDisplay />} />
-            <Route path='/requestapts/view/:id' element={<RoomShow />} />
+                <Route path='/postapts' element={<RoomsDisplay />} />
+                <Route path='/requestapts' element={<RoomsDisplay />} />
+                <Route path='/requestapts/view/:id' element={<RoomShow />} />
+                <Route path='/login' element={<LoginPage/>} />
+                <Route path='/registration' element={<SignUp/>} />
           </Routes> 
           {/* <CreateProfile createProfile={CreateProfile}/> */}
         </div>
