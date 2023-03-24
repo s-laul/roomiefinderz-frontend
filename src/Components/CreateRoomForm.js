@@ -1,3 +1,6 @@
+import RoomShow from "../Pages/RoomShow"
+import RoommatesDisplay from "./RoomatesDisplay"
+
 const CreateRoom = (props) => {
 
    return (
@@ -53,6 +56,7 @@ const CreateRoom = (props) => {
             <input type="submit" value="Submit"/>
          </form>
       </container>
+
    )
 }
 

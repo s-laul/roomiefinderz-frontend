@@ -1,19 +1,20 @@
-import { useState, useEf } from "react"
-
+import { useState } from "react"
+import RoommateContext from "./RoommateContext"
 
 const CreateProfileForm = (props) => {
-
    const [formData, setFormData] = useState({
+      picture: Image,
       name: '',
       age: '',
       gender: '',
       major: '',
       interests: '',
       smoker: 'No',
-      morningOrNight: 'Morning',
-      roommateOrRoom: 'Roommate'
+      morningOrNight: 'morning',
+      roommateOrRoom: 'roommate'
    })
 
+   
    const onChangeData = (e) => {
       setFormData((prev) => ({
          ...prev, 
@@ -25,10 +26,17 @@ const CreateProfileForm = (props) => {
       e.preventDefault()
       console.log(formData)
    }
+
+   
    
    return ( 
+      <>
+      <div className="backButton">
+            <a href="/">Return Home</a>
+         </div>
       <container className="profile-form-container">
          <form onSubmit={createProfile} className="profile-form">
+
             <label htmlFor="name">Name: &nbsp;</label>
             <input onChange={onChangeData} value={formData.name} id="name" type="text" name="name" placeholder="First name only"/><br/>
          
@@ -61,10 +69,14 @@ const CreateProfileForm = (props) => {
                <option value="roommate">Roommate</option>
                <option value="room">Room</option>
             </select><br/>
+            
+            <label name="picture">Upload Picture: &nbsp;</label>
+            <input htmlFor="picture" type="file"/><br/><br/>
 
             <input type="submit" value="Submit" />
          </form>
       </container>
+      </>
    )
 }
 
