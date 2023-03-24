@@ -1,63 +1,62 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import HomePage from "./HomePage";
 
-export default (props) => {
-
-    const [login, setlogin] = useState({
-        username: "",
-        password: ""
-    })
-
-    const handleChange = (e) => {
-        setlogin(prev => ({
-            ...prev,
-            [e.target.username]: e.target.value
-        }))
-    }
-
+const Login = () => {
+    const Navigate = useNavigate()
+    const [username, setUserName] = useState("")
+    const [password, setPassword] = useState("")
+    const [authenticated, setauthenticated] = useState(localStorage.getItem(localStorage.getItem("autehnticated") || false ))
+    const users = [
+        {
+            username:"Thiago",
+            password:"test"
+        }
+    ]
     const handleSubmit = (e) => {
         e.preventDefault()
-        props.createUser(login)
-        setlogin({
-            username: "",
-            password: ""
-        })
+        const account = users.find((user) => user.username === username)
+        if(account && account.password === password){
+            setauthenticated(true)
+            localStorage.setItem("authenticated", true)
+            Navigate("/homepage")
+        }
     }
 
-    return (
-       <section>
-        <h1>
-            Login
-        </h1>
-        <form onSubmit={handleChange}>
-            <input
-            type= 'text'
-            value= {login.username}
-            name='username'
-            placeholder='username'
-            onChange={handleSubmit}
-            />
-            <br/>
-            <input
-            type= 'text'
-            value={login.password}
-            name='password'
-            placeholder='password'
-            onChange={handleSubmit}
-            />
-            <br/>
-            <input
-            type='submit'
-            value='SIGN IN'
-            />
-        </form>
-        <br/>
-        <p>
-            Dont have an Account?
-        </p>
-        <Link to={`/registration`}>
-            Click Here
-        </Link>
-       </section>
+    const handleButton = (e) => {
+        e.preventDefault()
+        Navigate("/registration")
+    }
+    return(
+        <div>
+            <h2>
+                Login
+            </h2>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type='text'
+                    name='username'
+                    placeholder='name'
+                    value={username}
+                    onChange={(e) => setUserName(e.target.value)}
+                />
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <input
+                    type="submit" 
+                    value="Submit"
+                />
+            </form>
+            <p>
+                Dont already have an account?
+            </p>
+            <button classname="button2" onClick={handleButton}>Click Here</button>
+        </div>
     )
 }
+
+export default Login
