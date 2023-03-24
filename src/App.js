@@ -2,7 +2,7 @@ import './App.css';
 import {Route, Routes, BrowserRouter, Navigate} from 'react-router-dom'
 import LoginPage from './Pages/LoginPage'
 import HomePage from './Pages/HomePage';
-import CreateProfileForm from './Components/CreateProfileForm';
+import CreateRoommateForm from './Components/CreateRoommateForm';
 import RoommatesDisplay from './Components/RoomatesDisplay';
 import RoomsDisplay from './Components/RoomsDisplay';
 import HomePageButtons from './Components/HomepageButtons';
@@ -16,8 +16,9 @@ function App() {
         <div className="App" >
         <Routes>
           <Route path='/' element={<LoginPage />} />
-          <Route path='/roommatesdisplay' element={<RoommatesDisplay />} />
-          <Route path='/createprofile' element={<CreateProfileForm />} />
+          <Route path='/roommates' element={<RoommatesDisplay />} />
+          <Route path='/roommates/:id' element={<RoommatesDisplay />} />
+          <Route path='/createprofile' element={<CreateRoommateForm />} />
           <Route path='/postapts' element={<RoomsDisplay />} />
           <Route path='/requestapts' element={<RoomsDisplay />} />
           <Route path='/homepage' element={<HomePage/>} />

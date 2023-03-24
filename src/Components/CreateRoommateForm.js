@@ -1,7 +1,7 @@
 import { useState } from "react"
 import RoommateContext from "./RoommateContext"
 
-const CreateProfileForm = (props) => {
+const CreateRoommateForm = (props) => {
    const [formData, setFormData] = useState({
       picture: Image,
       name: '',
@@ -80,4 +80,4 @@ const CreateProfileForm = (props) => {
    )
 }
 
-export default CreateProfileForm
+export default CreateRoommateForm

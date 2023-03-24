@@ -12,7 +12,7 @@ const HomePageButtons = (props) => {
             <Link to="/createprofile">
                <button>Create a Profile</button>
             </Link>
-            <Link to="/roommatesdisplay">
+            <Link to="/roommates">
                <button>Find a Roommate</button>
             </Link>
             <Link to="/postapts">
