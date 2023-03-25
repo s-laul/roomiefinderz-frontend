@@ -13,10 +13,10 @@ const HomePageButtons = (props) => {
             <Link to="/RoommatesDisplay">
                <button>Find a Roommate</button>
             </Link>
-            <Link to="/postapts">
+            <Link to="/apartment/view/find">
                <button>Find a Room</button>
             </Link>
-            <Link to="/requestapts">
+            <Link to="/apartment/view/post">
                <button>Post a Room</button>
             </Link>
 

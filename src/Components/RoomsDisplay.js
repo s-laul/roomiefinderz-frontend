@@ -1,26 +1,28 @@
 import { useEffect, useState } from "react";
-import { Routes, Route, Outlet } from "react-router-dom"
+import { Routes, Route, useParams} from "react-router-dom"
 import RoomsIndexPage from "../Pages/RoomsIndexPage";
-import RoomShow from "../Pages/RoomShow";
-import RoomNew from "../Pages/RoomNew";
 
-// const URL = "http://localhost:4000/"
-const URL = "http://localhost:4000/requestapts"
+
+// const APT_URL = 'http://localhost:4000/apartment'
+const APT_URL = 'https://roomie-finder.herokuapp.com/apartment'
+
 
 const RoomsDisplay = (props) => {
-
    const [apartment, setApartment] = useState(null)
+   //actionId: new or view (apartment)
+   //postId: find or post (apartment)
+   const {actionId, postId} = useParams()
 
    const getApartment = async () => {
       // const response = await fetch(URL+'requestapts')
-      const response = await fetch(URL)
+      const response = await fetch(`${APT_URL}/view/${postId}`)
       const data = await response.json()
       console.log(data)
       setApartment(data)
    }
    const createApartment = async (room) => {
-      await fetch(URL, {
-      // await fetch(`${URL}/apartment`, {
+      console.log(room)
+      await fetch(`${APT_URL}/new`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
@@ -28,25 +30,6 @@ const RoomsDisplay = (props) => {
         body: JSON.stringify(room),
       });
       // update list of apartments
-      getApartment();
-    }
-  
-    const updateApartment = async(room, id ) => {
-      console.log("In " + URL)
-      await fetch(`${URL}/view/${id}`,  {
-        method: 'put',
-        headers: {
-         "Content-Type": 'application/json'
-        },
-        body: JSON.stringify(room)
-      })
-      getApartment();
-    }
-  
-    const deleteApartment = async (id) => {
-      await fetch(`${URL}/${id}`, {
-        method: 'delete'
-      })
       getApartment();
     }
   
@@ -58,9 +41,13 @@ const RoomsDisplay = (props) => {
       <main>
          <Routes>
             <Route path='/' element={
-               <RoomsIndexPage apartment={apartment}/>
+               <RoomsIndexPage 
+                   apartment={apartment} 
+                   createApartment={createApartment}
+                   getApartment={getApartment} 
+                   postId={postId}/>
             }/>
-            <Route path='/requestapts/view/:id' element={
+            {/* <Route path='/requestapts/view/:id' element={
                <RoomShow
                   apartment={apartment}
                   updateApartment={updateApartment}
@@ -71,7 +58,7 @@ const RoomsDisplay = (props) => {
                <RoomNew apartment={apartment}
                createApartment={createApartment}
                />
-            }/>
+            }/> */}
          </Routes>
       </main>
    )

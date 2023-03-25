@@ -29,7 +29,7 @@ const SignUp = (props) => {
 
     const handleButton = (e) => {
         e.preventDefault()
-        Navigate('/login')
+        Navigate('/')
     }
     return (
         <div>

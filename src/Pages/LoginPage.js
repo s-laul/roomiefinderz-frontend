@@ -19,7 +19,7 @@ const Login = () => {
         if(account && account.password === password){
             setauthenticated(true)
             localStorage.setItem("authenticated", true)
-            Navigate("/")
+            Navigate("/homepage")
         }
     }
 

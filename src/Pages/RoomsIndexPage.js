@@ -1,8 +1,11 @@
 import {useState} from 'react'
-import {Link, redirect} from 'react-router-dom'
+import {Link, useNavigate, useLocation} from 'react-router-dom'
 
 export default (props) => {
-    console.log(props)
+    console.log("in RoomsIndexPage")
+    console.log(props.createApartment)
+    const postId = props.postId
+
     let defaultState = {
       userName: '',
       post: false,
@@ -18,19 +21,23 @@ export default (props) => {
       image: '',
       note: ''
     }
+    
+    
+  const Navigate = useNavigate()
+  const location = useLocation()
   const [newForm, setNewForm] = useState(defaultState)
     
-  const handleChange = (e) => {
-      setNewForm(prev => ({
-          ...prev, 
-          [e.target.name]: e.target.value
-        }))
-  }
-  const handleSubmit = (e) => {
-      e.preventDefault()
-      props.createApartment(newForm)
-      setNewForm(defaultState)
-  } 
+  // const handleChange = (e) => {
+  //     setNewForm(prev => ({
+  //         ...prev, 
+  //         [e.target.name]: e.target.value
+  //       }))
+  // }
+  // const handleSubmit = (e) => {
+  //     e.preventDefault()
+  //     props.createApartment(newForm)
+  //     setNewForm(defaultState)
+  // } 
   const toYesNo = (abool) => {
       if (abool) {
         return "YES";
@@ -44,10 +51,11 @@ export default (props) => {
   const Loaded = () => {
     return props.apartment.map((room) => (
       <div key={room._id} className='room'>
-        <Link to={{pathname: `/requestapts/view/${room._id}`,
-        state: "XXX"}}>
+        <Link to={`/apartment/view/${postId}/${room._id}`}>
           <h3>{room.userName}</h3>
         </Link>
+        
+        {/* <button onClick={Navigate(`/requestapts/${room._id}`)}>{room.userName}</button> */}
         <h5>Location: {room.location}</h5>
         <h5>Housing Type: {room.housingType}</h5>
         <h5>Room: {room.roomType}</h5>
@@ -64,9 +72,17 @@ export default (props) => {
   const Loading = () => {
     return <h1>Loading...</h1>
   }  
+
+  const handleNew = () =>{
+    Navigate(`/apartment/new/${postId}`)
+  }
   return(
       <section>
-        <Link to={`/requestapts`}>
+        {/* <button onClick={handleNew}>Create a new room</button>  */}
+        {/* <Link to={`/apartment/new/${postId}`}>
+          <h3>Create A New Room</h3>
+        </Link> */}
+        <Link to={{pathname:`/apartment/new/${postId}`, state:{createApartment:props.createApartment}} }>
           <h3>Create A New Room</h3>
         </Link>
         {props.apartment ? <Loaded/>: <Loading />}
