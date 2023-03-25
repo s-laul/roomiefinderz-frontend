@@ -1,7 +1,9 @@
 import { useState } from "react"
 import RoommateContext from "./RoommateContext"
+import { useNavigate } from "react-router-dom"
 
 const CreateRoommateForm = (props) => {
+   const Navigate = useNavigate()
    const [formData, setFormData] = useState({
       picture: Image,
       name: '',
@@ -27,13 +29,17 @@ const CreateRoommateForm = (props) => {
       console.log(formData)
    }
 
-   
+   const onAHref = (e) => {
+      e.preventDefault()
+      Navigate('/homepage')
+   }
    
    return ( 
       <>
-      <div className="backButton">
+      <a href="/homepage" onClick={onAHref} className>Return Home</a>
+      {/* <div className="backButton">
             <a href="/">Return Home</a>
-         </div>
+         </div> */}
       <container className="profile-form-container">
          <form onSubmit={createProfile} className="profile-form">
             <label name="picture">Upload Picture: &nbsp;</label>
