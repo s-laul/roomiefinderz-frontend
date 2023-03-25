@@ -6,7 +6,7 @@ import CreateRoommateForm from './Components/CreateRoommateForm';
 import RoommatesDisplay from './Components/RoomatesDisplay';
 import RoomsDisplay from './Components/RoomsDisplay';
 import HomePageButtons from './Components/HomepageButtons';
-import SignUp from './Pages/SignUp';
+// import SignUp from './Pages/SignUp';
 
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
           <Route path='/postapts' element={<RoomsDisplay />} />
           <Route path='/requestapts' element={<RoomsDisplay />} />
           <Route path='/homepage' element={<HomePage/>} />
-          <Route path='/registration' element={<SignUp/>} />
+          {/* <Route path='/registration' element={<SignUp/>} /> */}
           {/* <Route path='/roommatesdisplay/:name' element={<RoommateProfile />} /> */}
         </Routes> 
           {/* Code space */}
