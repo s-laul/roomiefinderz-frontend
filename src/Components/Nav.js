@@ -6,6 +6,9 @@ const Nav = (props) => {
       <Link to='/'>
         <div>Find a Roomate</div>
       </Link>
+      <Link to='/findaroomate'>
+        <div>Find a Roomate</div>
+      </Link>
       <Link to='postapts'>
         <div>Find a Room</div>
       </Link>
