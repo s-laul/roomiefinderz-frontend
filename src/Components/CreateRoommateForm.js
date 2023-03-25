@@ -1,5 +1,4 @@
 import { useState } from "react"
-import HomePageButtons from "./HomepageButtons"
 import RoommateContext from "./RoommateContext"
 
 const CreateRoommateForm = (props) => {
@@ -33,7 +32,7 @@ const CreateRoommateForm = (props) => {
    return ( 
       <>
       <div className="backButton">
-         <Link to={`/homepage`}>Return Home</Link>
+            <a href="/homepage">Return Home</a>
          </div>
       <container className="profile-form-container">
          <form onSubmit={createProfile} className="profile-form">
