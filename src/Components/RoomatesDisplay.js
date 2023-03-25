@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const RoommatesDisplay = (props) => {
+   const Navigate = useNavigate()
 
    const roommateSeed = [
       {
@@ -93,10 +94,15 @@ const RoommatesDisplay = (props) => {
       }
    ]
 
+   const handleAHref = (e) => {
+      e.preventDefault()
+      Navigate("/homepage")
+   }
+
    return (
       <>
          <div className="backButton">
-            <a href="/homepage">Return Home</a>
+            <a href="/homepage" onClick={handleAHref}>Return Home</a>
          </div>
          <div className="roommatesDisplay">
          {roommateSeed.map((roommate) => {
