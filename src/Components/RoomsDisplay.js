@@ -55,7 +55,7 @@ const RoomsDisplay = (props) => {
       <main>
          <h1>REQUEST A ROOM</h1>
          <Routes>
-            <Route path='/' element={
+            <Route path='/homepage' element={
                <RoomsIndexPage apartment={apartment}/>
             }/>
             <Route path='/requestapts/:id' element={

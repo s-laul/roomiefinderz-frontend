@@ -32,7 +32,7 @@ const CreateRoommateForm = (props) => {
    return ( 
       <>
       <div className="backButton">
-            <a href="/">Return Home</a>
+            <a href="/homepage">Return Home</a>
          </div>
       <container className="profile-form-container">
          <form onSubmit={createProfile} className="profile-form">
