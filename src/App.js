@@ -1,11 +1,12 @@
 import './App.css';
-import {Route, Routes, Outlet} from 'react-router-dom'
+import {Route, Routes, BrowserRouter, Navigate} from 'react-router-dom'
 import LoginPage from './Pages/LoginPage'
 import HomePage from './Pages/HomePage';
 import {PagesTemplate, ApartmentTemplate} from './Components/PageTemplate';
 import CreateProfile from './Components/CreateProfileForm';
 import CreateRoom from './Components/CreateRoomForm';
 import CreateProfileForm from './Components/CreateProfileForm';
+import CreateRoommateForm from './Components/CreateRoommateForm';
 import RoommatesDisplay from './Components/RoomatesDisplay';
 import RoomsDisplay from './Components/RoomsDisplay';
 import HomePageButtons from './Components/HomepageButtons';
@@ -23,18 +24,24 @@ function App() {
         <div className="App" >
         <Routes>
           <Route path='/' element={<LoginPage />} />
-               <Route path='/findroomate' element={<RoommatesDisplay />} />
-               <Route path='/apartment/view/:postId' element={<RoomsDisplay />} />
-               <Route path='/apartment/:actionId/:postId/:id' element={<RoomShow />} />
+          <Route path='/roommates' element={<RoommatesDisplay />} />
+          <Route path='/roommates/:id' element={<RoommatesDisplay />} />
+          <Route path='/createprofile' element={<CreateRoommateForm />} />
+          <Route path='/apartment/view/:postId' element={<RoomsDisplay />} />
+          <Route path='/apartment/:actionId/:postId/:id' element={<RoomShow />} />
                <Route path='/apartment/new/:postId' element={<RoomNew />} />
-               <Route path='/homepage' element={<HomePage/>} />
-               <Route path='/registration' element={<SignUp/>} />
+          <Route path='/homepage' element={<HomePage/>} />
+          <Route path='/registration' element={<SignUp/>} />
+          {/* <Route path='/roommatesdisplay/:name' element={<RoommateProfile />} /> */}
                <Route path='/apartmentSeed' element={<ApartmentTemplate />}/>
                <Route path='/roommateSeed' element={<PagesTemplate />}/>
 
         </Routes> 
+          {/* Code space */}
+
+
         </div>
-          {/* <img className="Skyline" src="https://www.pngkit.com/png/full/636-6361779_skyline-clipart-bangalore-city-line-art-png.png"/> */}
+          
     </>
   );
 }

@@ -13,6 +13,8 @@ h1 {
 }
 .Skyline {
   position: fixed;
+  display: flex;
+  align-items: flex-start;
   bottom: -50px;
   width: 100%;
   height: auto;
@@ -65,4 +67,18 @@ button {
 }
 .room-form select {
   margin-bottom: 0.25rem;
+}
+
+
+/* Roommates Display */
+
+.roommatesDisplay {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+}
+
+.backButton {
+
+  padding: 0em 0em 2em 
 }
