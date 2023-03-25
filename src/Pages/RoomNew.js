@@ -1,11 +1,19 @@
 import {useState} from 'react'
 import { useNavigate, useParams } from "react-router-dom"
 
+// const APT_URL = 'http://localhost:4000/apartment'
+  const APT_URL = 'https://roomie-finder.herokuapp.com/apartment'
+
+
 export default (props) => {
+  console.log(`in RoomNew ${props}`)
+  console.log(props.createApartment)
   const navigate = useNavigate()
+  const {actionId, postId} = useParams()
+
   let defaultState = {
       userName: '',
-      post: false,
+      post: (postId === 'post'),
       lookFor: false,
       location: '',
       housingType: 'Condo',
@@ -18,8 +26,10 @@ export default (props) => {
       image: '',
       note: ''
     }
+
   const [newForm, setNewForm] = useState(defaultState)
-    
+  
+
   const minDateChange = (e) => {
       setNewForm(prev => ({
           ...prev,
@@ -70,12 +80,13 @@ export default (props) => {
   }
   const handleSubmit = (e) => {
       e.preventDefault()
-      props.createApartment(newForm)
-      setNewForm(defaultState)
-      navigate('/')
+      // props.createApartment(newForm)
+      createApartment(newForm)
+      // setNewForm(defaultState)
+      navigate('/apartment/view/' + postId)
   }
   const handleCancel = (e) => {
-    navigate('/')
+    navigate('/apartment/view/' + postId)
   }
   const toYesNo = (abool) => {
       if (abool) {
@@ -87,6 +98,18 @@ export default (props) => {
   const formatPrice = (arr) => {
         console.log(arr)
          return "$"+arr[0].toFixed()+ "-$" + arr[1].toFixed()
+  }
+
+  const createApartment = async (room) => {
+    await fetch(`${APT_URL}/new`, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(room),
+    });
+    // update list of apartments
+    // getApartment();
   }
 
   return (
