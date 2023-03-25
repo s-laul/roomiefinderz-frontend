@@ -96,7 +96,7 @@ const RoommatesDisplay = (props) => {
    return (
       <>
          <div className="backButton">
-            <a href="/">Return Home</a>
+            <a href="/homepage">Return Home</a>
          </div>
          <div className="roommatesDisplay">
          {roommateSeed.map((roommate) => {
