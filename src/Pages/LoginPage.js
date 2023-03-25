@@ -11,6 +11,18 @@ const Login = () => {
         {
             username:"Thiago",
             password:"test"
+        },
+        {
+            username:"Dave",
+            password:"test"
+        },
+        {
+            username:"Suitman",
+            password:"test"
+        },
+        {
+            username:"Frank",
+            password:"test"
         }
     ]
     const handleSubmit = (e) => {
