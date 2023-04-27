@@ -1,5 +1,4 @@
 # RoomieFinderz
-GA Project 3 Frontend with Thiago Garcia, Vi Nguyen, and Sameer Laul
 
 <h2> Project Idea </h2>
 
